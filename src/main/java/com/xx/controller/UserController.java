@@ -19,7 +19,7 @@ public class UserController {
 		String string = "2016-10-24 21:59:06";
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");		
 		User user=new User();
-		user.setUsername(null);
+		user.setName(null);
 		user.setPassword("123");
 		user.setBirthday(sdf.parse(string));
 		return JSONResult.ok(user);
