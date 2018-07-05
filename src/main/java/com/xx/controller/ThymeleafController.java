@@ -34,8 +34,8 @@ public class ThymeleafController {
 		u.setName("manager");
 		u.setAge(10);
 		u.setPassword("123465");
-		u.setBirthday(new Date());
-		u.setDesc("<font color='green'><b>hello imooc</b></font>");
+		u.setBirthday("2018-01-01 00:00:00");
+		u.setDescation("<font color='green'><b>hello imooc</b></font>");
 		
 		map.addAttribute("user", u);
 		
@@ -43,13 +43,13 @@ public class ThymeleafController {
 		u1.setAge(19);
 		u1.setName("imooc");
 		u1.setPassword("123456");
-		u1.setBirthday(new Date());
+		u1.setBirthday("2018-01-01 00:00:00");
 		
 		User u2 = new User();
 		u2.setAge(17);
 		u2.setName("LeeCX");
 		u2.setPassword("123456");
-		u2.setBirthday(new Date());
+		u2.setBirthday("2018-01-01 00:00:00");
 		
 		List<User> userList = new ArrayList<>();
 		userList.add(u);

@@ -9,17 +9,24 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class User {
 	
+	private int id;
 	private String name;
 	
 	@JsonIgnore
 	private String password;
 	private Integer age;
 	@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss a", locale="zh", timezone="GMT+8")
-	private Date birthday;
+	private String  birthday;
 	
 	@JsonInclude(Include.NON_NULL)
-	private String desc;
-	
+	private String descation;
+		
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -38,16 +45,17 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescation() {
+		return descation;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescation(String descation) {
+		this.descation = descation;
 	}
+
 }
