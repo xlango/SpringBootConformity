@@ -18,10 +18,28 @@
 		select * from tb_user
 	</select>
 	
-		<!-- 根据用户名查询用户信息 -->
+		<!-- 根据条件查询用户信息 -->
 	<select id="findbyName" resultType="com.xx.pojo.User"
 		parameterType="com.xx.pojo.User">
-		select * from tb_user where name=#{name}
+		select * from tb_user
+         <!--(where标签自动去掉满足条件的第一个and) -->
+      <where>
+         <if test="id!=null">
+            and id=#{id}
+         </if>
+         <if test="name != null">
+            and name=#{name}
+         </if>
+         <if test="age != null">
+            and age=#{age}
+         </if>
+         <if test="birthday != null">
+            and birthday=#{birthday}
+         </if>
+         <if test="name != null">
+            and descation=#{descation}
+         </if>
+      </where>
 	</select>
 	
 	 <!-- 增加用户 -->
