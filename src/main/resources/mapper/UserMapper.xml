@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xx.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.xx.pojo.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="password" property="password"
+			jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="birthday" property="birthday"
+			jdbcType="VARCHAR" />
+		<result column="desc" property="desc" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<!-- 查询所有用户信息 -->
+	<select id="findAll" resultType="com.xx.pojo.User"
+		parameterType="java.util.List">
+		select * from tb_user
+	</select>
+	
+		<!-- 根据用户名查询用户信息 -->
+	<select id="findbyName" resultType="com.xx.pojo.User"
+		parameterType="com.xx.pojo.User">
+		select * from tb_user where name=#{name}
+	</select>
+	
+	 <!-- 增加用户 -->
+    <insert id="add" parameterType="com.xx.pojo.User">
+        insert into tb_user (name,password,age,birthday,descation) values (#{name},#{password},#{age},#{birthday},#{descation})
+    </insert>
+    <!-- 删除用户 -->
+    <delete id="delete" parameterType="com.xx.pojo.User">
+        delete from tb_user where id = #{id}
+    </delete>
+    <!-- 修改用户 -->
+    <update id="update" parameterType="com.xx.pojo.User">    
+        update tb_user set name = #{name}, password = #{password}, age = #{age}, birthday = #{birthday},descation=#{descation} where id = #{id}    
+    </update>
+	
+</mapper>
