@@ -8,6 +8,8 @@ public interface IUserService {
 
 	List<User> findAll();
 	
+	List<User> pageuser(Integer page,Integer pageSize);
+	
     User findbyName(User user);
 	
     void add(User user);

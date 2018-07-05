@@ -5,9 +5,11 @@ import java.text.SimpleDateFormat;
 
 import javax.annotation.Resource;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageHelper;
 import com.xx.pojo.JSONResult;
 import com.xx.pojo.User;
 import com.xx.service.impl.UserServiceImpl;
@@ -37,7 +39,7 @@ public class UserController {
 			System.out.println(user.getName());
 		}
 		
-		return JSONResult.ok();
+		return JSONResult.ok(userService.findAll());
 	}
 	
 	@RequestMapping("/add")
@@ -83,5 +85,11 @@ public class UserController {
 
 		userService.delete(user);
 		return JSONResult.ok();
+	}
+	
+	//分頁
+	@GetMapping("/pageuser")
+	public JSONResult pageuser(Integer page,Integer pageSize) {		
+		return JSONResult.ok(userService.pageuser(page, pageSize));
 	}
 }

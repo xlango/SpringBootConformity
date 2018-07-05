@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
 import com.xx.mapper.UserMapper;
 import com.xx.pojo.User;
 import com.xx.service.IUserService;
@@ -39,6 +40,13 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public void delete(User user) {
 		userMapper.delete(user);
+	}
+
+	@Override
+	public List<User> pageuser(Integer page, Integer pageSize) {
+		//开始分页
+		PageHelper.startPage(page, pageSize);
+		return userMapper.findAll();
 	}
 
 }
