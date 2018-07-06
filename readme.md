@@ -32,3 +32,7 @@ Spring Boot后端加前端相关整合：
    (2)实现基于mybatis的CRUD功能
    (3)整合mybatis-pagehelper实现分页
    (4)idwork生成id
+   (5)整合事务回滚（解决脏、幻象、不可重复读） service层添加注解@Transactional(propagation = Propagation.REQUIRED)
+   
+6.SpringBoot整合Redis
+
