@@ -37,3 +37,9 @@ Spring Boot后端加前端相关整合：
 6.SpringBoot整合Redis
    (1)引入Redis依赖
    (2)配置application.properties
+   (3)下载运行redis：运行 redis-server.exe redis.windows.conf
+   
+7.SpringBoot整合定时任务task
+   (1)使用注解@EnableScheduling开始定时任务，会自动扫描
+   (2)定义@Component作为组件被容器扫描
+   (3)在线cron表达式：http://cron.qqe2.com/   注：springboot只支持六位，不支持到年
