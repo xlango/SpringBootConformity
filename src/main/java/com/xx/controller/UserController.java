@@ -5,11 +5,12 @@ import java.text.SimpleDateFormat;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.pagehelper.PageHelper;
 import com.xx.pojo.JSONResult;
 import com.xx.pojo.User;
 import com.xx.service.impl.UserServiceImpl;
@@ -20,6 +21,9 @@ public class UserController {
 	
 	@Resource
 	private UserServiceImpl userService;
+	
+	@Autowired
+    private StringRedisTemplate redisTemplate;
 	
 	String string = "2016-10-24 21:59:06";
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");	
@@ -91,5 +95,12 @@ public class UserController {
 	@GetMapping("/pageuser")
 	public JSONResult pageuser(Integer page,Integer pageSize) {		
 		return JSONResult.ok(userService.pageuser(page, pageSize));
+	}
+	
+	//redis
+	@GetMapping("/redis")
+	public JSONResult redisTest() {
+		redisTemplate.opsForValue().set("user-cache", "你好，浪哥");
+		return JSONResult.ok(redisTemplate.opsForValue().get("user-cache"));
 	}
 }

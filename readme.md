@@ -35,4 +35,5 @@ Spring Boot后端加前端相关整合：
    (5)整合事务回滚（解决脏、幻象、不可重复读） service层添加注解@Transactional(propagation = Propagation.REQUIRED)
    
 6.SpringBoot整合Redis
-
+   (1)引入Redis依赖
+   (2)配置application.properties
