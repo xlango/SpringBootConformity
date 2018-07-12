@@ -36,10 +36,22 @@ Spring Boot后端加前端相关整合：
    
 6.SpringBoot整合Redis
    (1)引入Redis依赖
-   (2)配置application.properties
+   (2)配置application.propertiesa
    (3)下载运行redis：运行 redis-server.exe redis.windows.conf
    
 7.SpringBoot整合定时任务task
    (1)使用注解@EnableScheduling开始定时任务，会自动扫描
    (2)定义@Component作为组件被容器扫描
    (3)在线cron表达式：http://cron.qqe2.com/   注：springboot只支持六位，不支持到年
+   
+8.SpringBoot异步执行程序
+   (1)使用注解@EnableAsync开启异步，会自动扫描
+   (2)定义@Component @Async作为组件被容器扫描执行
+   (3)应用于进程的同步和异步方法，例如：发短信、发邮件、App消息推送、节省运维凌晨发布任务时间提高效率
+   
+9.注册拦截器
+
+10.拓展：
+   (1)nosql:mongodb、memchache
+   (2)分布式中间件:zookeeper、dubbo
+   
